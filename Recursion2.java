@@ -137,4 +137,28 @@ class Recursion
         }
             System.out.println(list);
     }   
+       public static void duplicateElements(int[] arr)
+    {
+        ArrayList<ArrayList<Integer>> list=new ArrayList<>();
+        list.add(new ArrayList<>());
+        int start=0,end=0;
+        for(int i=0;i<arr.length;i++)
+        {
+            start=0;
+            if(i>0&&(arr[i]==arr[i-1]))
+            {
+                start=end+1;
+            }
+            int n=list.size();
+            end=list.size()-1;
+            for(int j=start;j<n;j++)
+            {
+                ArrayList<Integer> temp=new ArrayList<>(list.get(j));
+                temp.add(arr[i]);
+                list.add(temp);
+            }
+        }
+        System.out.println(list);
+    }
+
 }
